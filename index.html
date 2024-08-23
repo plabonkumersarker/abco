@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Atcoder Beginner Contest Opener</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f7f7f7;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            color: #333;
+            transition: background-color 0.3s, color 0.3s;
+        }
+        .container {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            max-width: 400px;
+            width: 100%;
+            text-align: center;
+            transition: background-color 0.3s, color 0.3s;
+        }
+        h1 {
+            font-size: 24px;
+            margin-bottom: 20px;
+            color: #4CAF50;
+        }
+        input[type="number"] {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 20px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 16px;
+            box-sizing: border-box;
+        }
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            border: none;
+            border-radius: 4px;
+            background-color: #4CAF50;
+            color: white;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+        .toggle-btn {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            padding: 10px 15px;
+            background-color: #333;
+            color: #fff;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        .night-mode {
+            background-color: #121212;
+            color: #ddd;
+        }
+        .night-mode .container {
+            background-color: #1e1e1e;
+            color: #ddd;
+        }
+        .night-mode h1 {
+            color: #9CDA9C;
+        }
+        .night-mode input[type="number"] {
+            background-color: #444;
+            color: #ddd;
+            border: 1px solid #555;
+        }
+        .night-mode button {
+            background-color: #666;
+        }
+        .night-mode button:hover {
+            background-color: #555;
+        }
+    </style>
+</head>
+<body>
+    <button class="toggle-btn" onclick="toggleNightMode()">Night Mode</button>
+    <div class="container">
+        <h1>Atcoder Beginner Contest Opener</h1>
+        <input type="number" id="contestNo" placeholder="Enter Contest Number" />
+        <button onclick="generateLink()">Generate</button>
+    </div>
+    <script>
+        function generateLink() {
+            var contestNo = document.getElementById("contestNo").value;
+            if (contestNo) {
+                var url = "https://atcoder.jp/contests/abc" + contestNo + "/tasks";
+                window.open(url, "_blank");
+            } else {
+                alert("Please enter a contest number.");
+            }
+        }
+
+        function toggleNightMode() {
+            document.body.classList.toggle('night-mode');
+            var btn = document.querySelector('.toggle-btn');
+            if (document.body.classList.contains('night-mode')) {
+                btn.textContent = 'Day Mode';
+            } else {
+                btn.textContent = 'Night Mode';
+            }
+        }
+
+        // Set initial mode
+        window.addEventListener('DOMContentLoaded', (event) => {
+            document.body.classList.add('night-mode');
+            var btn = document.querySelector('.toggle-btn');
+            btn.textContent = 'Day Mode';
+        });
+    </script>
+</body>
+</html>
